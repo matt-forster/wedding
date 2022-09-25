@@ -1,0 +1,8 @@
+.content {
+  display: "grid",
+  gridGap: "10px",
+  placeItems: "stretch",
+  width: "100%",
+  overflowX: "hidden",
+  backgroundImage: "linear-gradient(to bottom, black 50%, var(--parent))",
+}
