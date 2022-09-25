@@ -13,11 +13,11 @@ export const meta: MetaFunction = () => ({
 
 export default function Index() {
   return (
-    <div className="grid gap-60 place-items-stretch width-100 overflow-x-hidden bg-gradient-to-b from-black via-black to-[#2e3440] text-[#eceff4]">
-      <Hero/>
-      <Info/>
-      <RVSP/>
-      <Credits/>
+    <div className="grid gap-60 place-items-stretch width-screen bg-gradient-to-b from-black via-black to-[#2e3440] text-[#d8dee9]">
+      <Hero />
+      <Info />
+      <RVSP />
+      <Credits />
     </div>
   );
 }

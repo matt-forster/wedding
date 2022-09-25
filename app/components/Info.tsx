@@ -1,112 +1,95 @@
 export default function Info() {
   return (
-    <div>
-      <div id="about">
-        <h2>Sunday, September 5th, 2021</h2>
-        <p>
-          Dear Friends and family, We've decided to resend our invitations and
-          reinvite everyone in hopes that it is possible to run some semblance
-          of a gathering later next year. Of course, given the circumstances,
-          plans might change - and we will update the information below and
-          email you if that happens. We recognize that it will be a new year,
-          under new circumstances, and understand if you are unable to come. We
-          are still committed to providing an experience that everyone will
-          cherish.
-        </p>
-
-        <h2>Stay</h2>
-        <p>Black Rock Resort, Ucluelet, BC 596 Marine Drive, V0R 3A0</p>
-        <p>
-          To book:
-          <ul>
-            <li>1-877-762-5011</li>
-            <li>
-              <a href="mailto:reservations@blackrockresort.com">
-                reservations@blackrockresort.com
-              </a>
-            </li>
-          </ul>
-          <p>
-            Use the group booking name: "Pietras Forster Wedding 2020". We have
-            a great group rate, but there is a two night minimum.
-          </p>
-          <ul>
-            <li>Suite (single room) - $179 a night</li>
-            <li>Bedroom (two rooms, couch) - $269 a night</li>
-          </ul>
-          <p>
-            The reservation block is held until 7th of August, please book your
-            rooms before then. You do not have to stay at Black Rock, feel free
-            to find your own accommodation in Ucluelet. There are some very nice
-            cabins available not far from the wedding.
-          </p>
-        </p>
-
-        <h2>Schedule</h2>
-
-        <table>
-          <th></th>
-          <th>Time</th>
-          <th>Location</th>
-          <tr>
-            <td>
-              <h3>Ceremony</h3>
-            </td>
-            <td>1:30pm</td>
-            <td>Big Beach, Ucluelet</td>
-          </tr>
-          <tr>
-            <td>
-              <h3>Appetizers</h3>
-            </td>
-            <td>3:30pm</td>
-            <td>Wine Cellar, Black Rock Resort</td>
-          </tr>
-          <tr>
-            <td>
-              <h3>Reception</h3>
-            </td>
-            <td>5:30pm</td>
-            <td>Wine Cellar, Black Rock Resort</td>
-          </tr>
-        </table>
-
-        <h3>
-          <a
-            href="https://www.google.com/maps/d/u/0/edit?hl=en&mid=19zdrOwXJSjhpbidXsnryqWGrzti0F5rr&ll=48.93915505204332%2C-125.55124719999998&z=17"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Map of Ucluelet
+    <div
+      id="info"
+      className="grid justify-center place-items-start gap-4 mt-0 sm:m-10 lg:m-20 p-4 rounded-lg"
+    >
+      <h2 className="text-3xl text-[#eceff4]">Saturday, September 2nd, 2023</h2>
+      <div>
+        <h2 className="text-2xl">
+          <a className="" href="https://www.azuridgehotel.com/">
+            Azure Ridge Estate
           </a>
-        </h3>
+        </h2>
+      </div>
 
-        <h2>Recommendations</h2>
+      <div>
+        Third time's the charm! We're finally having our celebration. We're so
+        excited to share the day with everybody. A closer venue, with more
+        options for accommodation and higher flexibility - we hope that this
+        opens up the opportunity for more people to join us. This website serves
+        as the main source of information for the event. We have the same RSVP
+        process, but we've added a few more details to help you plan.
+        <br />
+        <br />
+        If you have any questions, please reach out to us at{" "}
+        <a className="underline" href="mailto:wedding@mattforster.ca">
+          wedding@mattforster.ca
+        </a>
+        .
+        <br />
+        We can't wait to celebrate with everybody - see you there!
+      </div>
 
-        <h3>Travel</h3>
-        <ul>
-          <li>We recommend a flight to Nanimo (Vancouver Island)</li>
-          <li>
-            Renting a car in Nanimo to drive to Ucluelet is a great way to see
-            some awesome landscape on Vancouver Island
-          </li>
-          <li>
-            If you choose to drive through Vancouver, be aware of; ferry
-            schedule changes, line ups, and rush hour traffic - all which can
-            cause very long delays.
-          </li>
-        </ul>
+      <h2 className="text-3xl text-[#eceff4]">Location</h2>
+      <div>
+        Azuridge Estate Hotel, 178057 272 St W, Priddis, AB T0L 1W4
+        <div className="text-xs text-light">
+          ~20 minutes from the south of Calgary
+        </div>
+        <br />
+        <a
+          className="text-[#d8dee9] text-sm underline"
+          target="_blank"
+          href="https://www.google.com/maps/dir/49.6678073,-112.9134037/Azuridge+Estate+Hotel+Chic+rooms,+plus+fine+dining+%26+a+spa/@50.2873197,-114.2127867,9z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x53710c4fda3fcc89:0x8fe100c59e14140e!2m2!1d-114.406472!2d50.8868903"
+          rel="noreferrer"
+        >
+          Directions from your current location{" "}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-4 h-4 mb-1 inline-block"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+            />
+          </svg>
+        </a>
+      </div>
 
-        <h3>What to bring</h3>
-        <ul>
-          <li>Hiking boots! (or at least good shoes)</li>
-          <li>Rain gear - coat at the least</li>
-          <li>A camera - the scenery is incredible</li>
-          <li>
-            A game to play after supper! - We are not dancing, so instead we
-            invite our guests to bring their favorite table top game.
-          </li>
-        </ul>
+      <h2 className="text-3xl">Schedule</h2>
+      <div className="grid grid-cols-3 gap-4 place-items-stretch ml-10">
+        <div className="font-bold">Saturday, Sept. 2nd</div>
+        <div className="font-bold">Time</div>
+        <div className="font-bold">Location</div>
+
+        <div className="">Ceremony</div>
+        <div>4:00 PM</div>
+        <div>Outdoor Ceremony</div>
+
+        <div className="">Cocktails</div>
+        <div>4:30 PM</div>
+        <div></div>
+
+        <div className="">Dinner</div>
+        <div>6:30 PM</div>
+        <div>Indoor Reception</div>
+
+        <div className="mt-8 font-bold">Sunday, Sept. 3rd</div>
+        <div className="mt-8 font-bold">Time</div>
+        <div className="mt-8 font-bold">Location</div>
+
+        <div className="">Breakfast</div>
+        <div>9:00 AM</div>
+        <div></div>
+      </div>
+      <div className="font-light text-sm">
+        Everything held on grounds at Azure Ridge
       </div>
     </div>
   );
