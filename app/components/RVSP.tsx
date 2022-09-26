@@ -1,4 +1,4 @@
-export default function RVSP() {
+export default function RVSP({ code }: { code: string | null }) {
   return (
     <div
       id="rsvp"
@@ -10,33 +10,27 @@ export default function RVSP() {
         <span className="font-bold not-italic">July 8th, 2023</span>.
       </div>
 
-      <form action="#">
+      <form method="post" action="/wedding">
         <label className="block text-sm font-medium">
           RVSP Code
           <div className="relative mt-1 rounded-md shadow-sm">
             <input
               type="text"
-              name="price"
-              id="price"
+              name="rvspCode"
               className="block w-full rounded-md text-black text-center border-gray-300 h-6 focus:border-[#88c0d0] focus:ring-[#8fbcbb] sm:text-sm"
               placeholder=""
+              defaultValue={code ? code : ""}
             />
           </div>
         </label>
 
         <input
           className="mt-4 bg-transparent hover:bg-[#81a1c1] text-[#5e81ac] font-semibold hover:text-white py-2 px-4 border border-[#5e81ac] hover:border-transparent rounded"
-          id="submit-invite-code"
-          type="button"
+          type="submit"
+          name="action"
           value="Find RSVP"
-          // onclick="rsvpGen()"
         />
       </form>
-
-      <form id="rsvp-form" action="#"></form>
-      <div>
-        <i id="loading-icon"></i>
-      </div>
     </div>
   );
 }

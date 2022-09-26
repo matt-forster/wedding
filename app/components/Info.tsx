@@ -1,14 +1,21 @@
+import ExternalLinkIcon from "./external-link";
+
 export default function Info() {
   return (
     <div
       id="info"
-      className="grid justify-center place-items-start gap-4 mt-0 sm:m-10 lg:m-20 p-4 rounded-lg"
+      className="grid justify-center place-items-start gap-8 mt-0 sm:m-10 lg:m-20 p-4 rounded-lg"
     >
       <h2 className="text-3xl text-[#eceff4]">Saturday, September 2nd, 2023</h2>
       <div>
         <h2 className="text-2xl">
-          <a className="" href="https://www.azuridgehotel.com/">
-            Azure Ridge Estate
+          <a
+            className="underline"
+            href="https://www.azuridgehotel.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Azure Ridge Estate <ExternalLinkIcon />
           </a>
         </h2>
       </div>
@@ -24,72 +31,121 @@ export default function Info() {
         <br />
         If you have any questions, please reach out to us at{" "}
         <a className="underline" href="mailto:wedding@mattforster.ca">
-          wedding@mattforster.ca
+          wedding@mattforster.ca <ExternalLinkIcon />
         </a>
         .
         <br />
         We can't wait to celebrate with everybody - see you there!
       </div>
 
-      <h2 className="text-3xl text-[#eceff4]">Location</h2>
       <div>
-        Azuridge Estate Hotel, 178057 272 St W, Priddis, AB T0L 1W4
-        <div className="text-xs text-light">
-          ~20 minutes from the south of Calgary
-        </div>
-        <br />
-        <a
-          className="text-[#d8dee9] text-sm underline"
-          target="_blank"
-          href="https://www.google.com/maps/dir/49.6678073,-112.9134037/Azuridge+Estate+Hotel+Chic+rooms,+plus+fine+dining+%26+a+spa/@50.2873197,-114.2127867,9z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x53710c4fda3fcc89:0x8fe100c59e14140e!2m2!1d-114.406472!2d50.8868903"
-          rel="noreferrer"
-        >
-          Directions from your current location{" "}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-4 h-4 mb-1 inline-block"
+        <h2 className="mb-2 text-3xl text-[#eceff4]">Location</h2>
+        <div>
+          Azuridge Estate Hotel, 178057 272 St W, Priddis, AB T0L 1W4
+          <div className="text-xs text-light">
+            ~20 minutes from the south of Calgary
+          </div>
+          <br />
+          <a
+            className="text-[#d8dee9] text-sm underline"
+            target="_blank"
+            href="https://www.google.com/maps/dir/49.6678073,-112.9134037/Azuridge+Estate+Hotel+Chic+rooms,+plus+fine+dining+%26+a+spa/@50.2873197,-114.2127867,9z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x53710c4fda3fcc89:0x8fe100c59e14140e!2m2!1d-114.406472!2d50.8868903"
+            rel="noreferrer"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-            />
-          </svg>
-        </a>
+            Directions from your current location <ExternalLinkIcon />
+          </a>
+        </div>
       </div>
 
-      <h2 className="text-3xl">Schedule</h2>
-      <div className="grid grid-cols-3 gap-4 place-items-stretch ml-10">
-        <div className="font-bold">Saturday, Sept. 2nd</div>
-        <div className="font-bold">Time</div>
-        <div className="font-bold">Location</div>
+      <div>
+        <h2 className="mb-2 text-3xl">Schedule</h2>
+        <div className="grid grid-cols-3 gap-4 place-items-stretch ml-10">
+          <div className="font-bold">Saturday, Sept. 2nd</div>
+          <div className="font-bold">Time</div>
+          <div className="font-bold">Location</div>
 
-        <div className="">Ceremony</div>
-        <div>4:00 PM</div>
-        <div>Outdoor Ceremony</div>
+          <div className="">Ceremony</div>
+          <div>4:00 PM</div>
+          <div>Outdoor Ceremony</div>
 
-        <div className="">Cocktails</div>
-        <div>4:30 PM</div>
-        <div></div>
+          <div className="">Cocktails</div>
+          <div>4:30 PM</div>
+          <div></div>
 
-        <div className="">Dinner</div>
-        <div>6:30 PM</div>
-        <div>Indoor Reception</div>
+          <div className="">Dinner</div>
+          <div>6:30 PM</div>
+          <div>Indoor Reception</div>
 
-        <div className="mt-8 font-bold">Sunday, Sept. 3rd</div>
-        <div className="mt-8 font-bold">Time</div>
-        <div className="mt-8 font-bold">Location</div>
+          <div className="mt-8 font-bold">Sunday, Sept. 3rd</div>
+          <div className="mt-8 font-bold">Time</div>
+          <div className="mt-8 font-bold">Location</div>
 
-        <div className="">Breakfast</div>
-        <div>9:00 AM</div>
-        <div></div>
+          <div className="">Breakfast</div>
+          <div>9:00 AM</div>
+          <div></div>
+        </div>
+        <div className="mt-2 font-light italic text-xs">
+          *Everything held on grounds at Azure Ridge
+        </div>
       </div>
-      <div className="font-light text-sm">
-        Everything held on grounds at Azure Ridge
+
+      <div>
+        <h2 className="mb-2 text-3xl">Accommodation</h2>
+        <div>
+          There is limited accommodation on-site, and we've reserved those rooms
+          for family and the wedding party. If your RVSP info does not include a
+          room assignment, we can help you find a nearby hotel. Our
+          reccomedations are:
+          <ul className="list-disc list-inside ml-8">
+            <li>
+              <a
+                className="underline"
+                target="_blank"
+                href="https://www.marriott.com/en-us/hotels/yycdc-delta-hotels-calgary-south/overview/"
+                rel="noreferrer"
+              >
+                Marriott - South Calgary <ExternalLinkIcon />
+              </a>
+            </li>
+            <li>
+              <a
+                className="underline"
+                target="_blank"
+                href="https://www.marriott.com/en-us/hotels/yyccr-residence-inn-calgary-south/overview/"
+                rel="noreferrer"
+              >
+                Marriot - South Health Campus <ExternalLinkIcon />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <h2 className="mb-2 text-3xl">Gifts</h2>
+        <div>
+          We respectfully request that you do not bring gifts to the wedding.
+          Instead, if you like, you can make a donation to one of our favorite
+          charities;{" "}
+          <a
+            href="https://wck.org/"
+            className="underline"
+            target="_blank"
+            rel="noreferrer"
+          >
+            World Central Kitchen <ExternalLinkIcon />
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://lethbridgepregcentre.com/donors/online-donations/"
+            target="_blank"
+            className="underline"
+            rel="noreferrer"
+          >
+            Lethbridge Pregnancy Centre <ExternalLinkIcon />
+          </a>
+          .
+        </div>
       </div>
     </div>
   );

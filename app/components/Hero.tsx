@@ -4,7 +4,7 @@ export default function First() {
       id="hero"
       className="bg-cover bg-center-bottom bg-no-repeat h-screen w-screen grid place-items-center justify-center"
       style={{
-        backgroundImage: 'url("./images/phil-botha-a0TJ3hy-UD8-unsplash.jpg")',
+        backgroundImage: "url('/images/space.jpg')",
       }}
     >
       <div className="text-center">
@@ -24,10 +24,10 @@ export default function First() {
       </div>
 
       <div className="border-t border-slate-300 flex flex-row lg:gap-80 text-xl pt-8">
-        <a className="pr-10 font-bold hover:text-[#81a1c1]" href="#info">
+        <a className="pr-10 ml-8 font-bold hover:text-[#81a1c1]" href="#info">
           About
         </a>
-        <a className="pl-10 font-bold hover:text-[#81a1c1]" href="#rsvp">
+        <a className="pl-10 mr-8 font-bold hover:text-[#81a1c1]" href="#rsvp">
           RSVP
         </a>
       </div>
