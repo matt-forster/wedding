@@ -20,7 +20,12 @@ export default function GuestRSVPFields({
       <div className="font-bold">{guest.name}</div>
       <div className="pl-8">
         <input type="hidden" name={`${guest.id}.id`} value={guest.id} />
-        <GuestCheckbox label="Attending" guest={guest} attribute="attending" />
+        <GuestCheckbox
+          label="Attending"
+          guest={guest}
+          attribute="attending"
+          className="font-bold"
+        />
         {guest.attending ? (
           <>
             <GuestMealDropdown
@@ -38,12 +43,14 @@ export default function GuestRSVPFields({
                 label="Staying on site at Azure Ridge?"
                 guest={guest}
                 attribute="stayingOnSite"
+                className="font-light"
               />
             )}
             <GuestCheckbox
               label="Staying for breakfast on Sunday?"
               guest={guest}
               attribute="attendingBreakfast"
+              className="font-light"
             />
           </>
         ) : null}

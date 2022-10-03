@@ -10,7 +10,7 @@ export default function First() {
       <div className="h-screen w-screen grid place-items-center justify-center bg-gradient-to-b from-black/90 via-transparent">
         <div className="text-center">
           <div>You are invited to the third-attempt reception of</div>
-          <h1 className="text-3xl lg:text-6xl text-[#eceff4]">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl text-[#eceff4]">
             Matthew & Dominique <br /> Forster
           </h1>
         </div>

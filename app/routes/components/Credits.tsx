@@ -3,13 +3,13 @@ import { HeartIcon } from "@heroicons/react/24/outline";
 export default function Fourth() {
   return (
     <div
-      className="bg-cover bg-center-bottom bg-no-repeat w-screen h-40 grid place-items-end gap-0 md:text-xs text-xs"
+      className="bg-cover bg-center-bottom bg-no-repeat w-screen h-40 grid text-right place-items-end gap-0 text-xs text-[#4c566a]"
       style={{
         backgroundImage: 'url("/images/landscape.png")',
       }}
     >
       <div>
-        <div className="mr-8">
+        <div className="mr-4">
           Cover photo by{" "}
           <a
             target="_blank"
@@ -21,7 +21,7 @@ export default function Fourth() {
           </a>{" "}
           on Unsplash
         </div>
-        <div className="mr-8 mb-8">
+        <div className="mr-4 mb-4">
           Made with <HeartIcon className="text-red-600 inline w-4 h-4" /> by
           Matt
         </div>

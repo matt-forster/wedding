@@ -31,10 +31,10 @@ export default function Index() {
   const { fillCode } = useLoaderData();
 
   return (
-    <div className="grid gap-50 place-items-center width-screen bg-gradient-to-b from-black via-black to-[#2e3440] text-[#d8dee9]">
+    <div className="grid gap-50 place-items-center w-screen overflow-hidden bg-gradient-to-b from-black via-black to-[#2e3440] text-[#d8dee9]">
       <Hero />
       <Info />
-      <div className="pt-20 grid place-items-center w-full">
+      <div className="pt-20 w-full">
         <RSVPCode code={fillCode} />
         <Outlet />
       </div>

@@ -9,7 +9,7 @@ export default function Info() {
   return (
     <div
       id="info"
-      className="grid justify-center place-items-start gap-8 mt-0 sm:m-10 lg:m-20 p-4 rounded-lg"
+      className="p-10 grid place-items-start gap-8 mt-0 sm:m-10 lg:m-20 rounded-lg"
     >
       <h2 className="text-3xl text-[#eceff4]">Saturday, September 2nd, 2023</h2>
       <div>

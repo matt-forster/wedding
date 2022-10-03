@@ -7,7 +7,7 @@ export default function RSVPCode({ code }: { code: string | null }) {
   return (
     <div
       id="rsvp"
-      className="grid gap-4 justify-center place-items-center text-center"
+      className="grid gap-4 justify-items-center place-items-center text-center"
     >
       <h2 className="text-4xl font-bold">RSVP</h2>
       <div className="ml-10 mr-10 italic">
@@ -15,7 +15,7 @@ export default function RSVPCode({ code }: { code: string | null }) {
         <span className="font-bold not-italic">July 8th, 2023</span>.
       </div>
 
-      <Form method="post" action="/wedding">
+      <Form reloadDocument method="post" action="/wedding">
         <label className="block text-sm font-medium">
           RSVP Code
           <fieldset

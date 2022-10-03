@@ -54,27 +54,27 @@ export default function () {
     guestReducer,
     guests.find((guest) => guest.primary) as Guest
   );
-  const [received, setReceived] = useState(common.rsvpReceived);
+  const [received, setReceived] = useState(Boolean(common.rsvpReceived));
   const CommonTextbox = Textbox(dispatchCommonChange);
 
   useEffect(() => {
-    if (
-      transition.state === "loading" &&
-      transition.submission?.formData.get("action") === "submit"
-    )
+    setReceived(Boolean(common.rsvpReceived));
+    if (transition.submission?.formData.get("action") === "submit") {
       setReceived(true);
-  }, [transition.state, transition.submission?.formData]);
+    }
+  }, [transition.state, transition.submission, common.rsvpReceived]);
 
   return (
-    <div className="grid place-items-center mt-10">
+    <div className="grid place-items-stretch text-center justify-items-center mt-10">
       {received && (
-        <div className="p-4 grid place-items-center font-bold rounded-md bg-[#5e81ac] drop-shadow-md">
+        <div className="m-10 p-4 content font-bold rounded-md bg-[#5e81ac] drop-shadow-md">
           <CheckBadgeIcon className="inline h-8 w-8 text-[#a3be8c]" /> Your
           response has been received, thank you.
         </div>
       )}
+
       {common.roomAssignment === undefined || (
-        <div className="mt-4 w-3/4 text-center text-sm">
+        <div className="mt-4 w-3/4 text-center">
           Your party has been assigned to a room!
           <br />
           We will send an email out later if you decide to stay, with the room
@@ -86,10 +86,11 @@ export default function () {
           </div>
         </div>
       )}
-      <Form replace method="post">
+
+      <Form replace method="post" className="grid place-items-center w-full">
         <fieldset
           disabled={["submitting", "loading"].includes(transition.state)}
-          className="grid gap-4 m-4 w-96 place-items-start"
+          className="grid gap-4 m-4 place-items-start text-left"
         >
           {/* LATER: enable this when we have assigned rooms */}
           {/* {common.stayingOnSite === false || <div>Room Assignment: {common.roomAssignment}</div>} */}
@@ -107,23 +108,22 @@ export default function () {
           />
           <CommonTextbox label="Comments" guest={common} attribute="comments" />
         </fieldset>
-        <div className="grid place-items-center">
-          <button
-            type="submit"
-            name="action"
-            value="submit"
-            className="mt-4 bg-transparent hover:bg-[#81a1c1] text-[#5e81ac] font-semibold hover:text-white py-2 px-4 border border-[#5e81ac] hover:border-transparent rounded"
-            disabled={["submitting", "loading"].includes(transition.state)}
-          >
-            {["submitting", "loading"].includes(transition.state) ? (
-              <ArrowPathIcon className="animate-spin h-6 w-6" />
-            ) : received ? (
-              "Update"
-            ) : (
-              "Submit"
-            )}
-          </button>
-        </div>
+
+        <button
+          type="submit"
+          name="action"
+          value="submit"
+          className="mt-4 bg-[#5e81ac] hover:bg-[#81a1c1] text-[#d8dee9] font-semibold hover:text-white py-2 px-4 border border-[#5e81ac] hover:border-transparent rounded"
+          disabled={["submitting", "loading"].includes(transition.state)}
+        >
+          {["submitting", "loading"].includes(transition.state) ? (
+            <ArrowPathIcon className="animate-spin h-6 w-6" />
+          ) : received ? (
+            "Update"
+          ) : (
+            "Submit"
+          )}
+        </button>
       </Form>
     </div>
   );

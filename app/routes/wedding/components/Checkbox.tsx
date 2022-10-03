@@ -6,14 +6,16 @@ export const Checkbox = (
   return function Checkbox({
     guest,
     attribute,
-    label
+    label,
+    className,
   }: {
     guest: Guest;
     attribute: keyof Guest;
-    label: string
+    label: string;
+    className?: string;
   }): JSX.Element {
     return (
-      <label className="block text-sm font-medium">
+      <label className={(className ?? "") + "block"}>
         <input
           type="checkbox"
           className="inline m-2"
@@ -23,7 +25,7 @@ export const Checkbox = (
             dispatch({
               attribute,
               value: Boolean(e.target.checked),
-              clone: true
+              clone: true,
             })
           }
         />
