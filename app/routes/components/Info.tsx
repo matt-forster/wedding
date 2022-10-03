@@ -1,6 +1,8 @@
-import { ArrowTopRightOnSquareIcon } from '@heroicons/react/20/solid'
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 
-const ExternalLinkIcon = (<ArrowTopRightOnSquareIcon className="inline -mr-1 ml-1 h-5 w-5" />);
+const ExternalLinkIcon = (
+  <ArrowTopRightOnSquareIcon className="inline -mr-1 ml-1 h-5 w-5" />
+);
 
 export default function Info() {
   return (

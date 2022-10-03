@@ -1,4 +1,4 @@
-import { ArrowPathIcon } from "@heroicons/react/20/solid";
+import { ArrowPathIcon } from "@heroicons/react/24/solid";
 import { Form, useTransition } from "@remix-run/react";
 
 export default function RSVPCode({ code }: { code: string | null }) {

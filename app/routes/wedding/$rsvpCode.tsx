@@ -13,7 +13,7 @@ import { Client } from "@notionhq/client";
 import { Textbox } from "./components/Textbox";
 import type { Guest } from "./guest.model";
 import { formDataToGuests } from "./guest.model";
-import { ArrowPathIcon } from "@heroicons/react/20/solid";
+import { ArrowPathIcon, CheckBadgeIcon } from "@heroicons/react/24/solid";
 
 interface Context extends AppLoadContext {
   NOTION_API_KEY: string;
@@ -62,7 +62,8 @@ export default function () {
     <div className="grid place-items-center mt-10">
       {received && (
         <div className="font-bold">
-          Your response has been received - feel free to update it anytime.
+          <CheckBadgeIcon className="inline h-8 w-8" /> Your response has been
+          received - feel free to update it anytime.
         </div>
       )}
       {common.roomAssignment === undefined || (
