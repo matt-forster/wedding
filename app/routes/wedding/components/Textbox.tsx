@@ -17,7 +17,7 @@ export const Textbox = (
         {label}
         <input
           type="text"
-          className="ml-4 p-2 block md:w-full rounded-md text-black border-gray-300 h-6 focus:border-[#88c0d0] focus:ring-[#8fbcbb] text-sm"
+          className="ml-4 p-2 block rounded-md text-black border-gray-300 h-6 focus:border-[#88c0d0] focus:ring-[#8fbcbb] text-sm"
           name={`${guest.id}.${attribute}`}
           defaultValue={guest[attribute] as string}
           onBlur={(e) =>

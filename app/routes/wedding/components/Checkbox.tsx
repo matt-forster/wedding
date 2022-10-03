@@ -15,7 +15,7 @@ export const Checkbox = (
     className?: string;
   }): JSX.Element {
     return (
-      <label className={(className ?? "") + "block"}>
+      <label className={"block " + (className ?? "")}>
         <input
           type="checkbox"
           className="inline m-2"

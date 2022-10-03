@@ -16,7 +16,7 @@ export default function GuestRSVPFields({
   const GuestCheckbox = Checkbox(dispatchGuestChange);
 
   return (
-    <div className="">
+    <div className="contents w-3/4 sm:w-full">
       <div className="font-bold">{guest.name}</div>
       <div className="pl-8">
         <input type="hidden" name={`${guest.id}.id`} value={guest.id} />

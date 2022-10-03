@@ -26,7 +26,7 @@ export function GuestMealDropdown({
   label: string;
 }) {
   return (
-    <label className="m-2 block font-light">
+    <label className="m-2 block font-light md:w-1/2">
       {label}
       <select
         name={`${guest.id}.${attribute}`}
