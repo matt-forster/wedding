@@ -13,7 +13,7 @@ import { Client } from "@notionhq/client";
 import { Textbox } from "./components/Textbox";
 import type { Guest } from "./guest.model";
 import { formDataToGuests } from "./guest.model";
-import { ArrowPathIcon } from '@heroicons/react/20/solid'
+import { ArrowPathIcon } from "@heroicons/react/20/solid";
 
 interface Context extends AppLoadContext {
   NOTION_API_KEY: string;
@@ -73,12 +73,16 @@ export default function () {
           number and occupants.
           <div className="mt-4 italic font-light">
             Reminder: there is a chance of sharing a room with family or
-            friends. We will do our best, and let us know if there are any issues.
+            friends. We will do our best, and let us know if there are any
+            issues.
           </div>
         </div>
       )}
       <Form replace method="post">
-        <fieldset disabled={["submitting", "loading"].includes(transition.state)} className="grid gap-4 m-4 w-96 place-items-start">
+        <fieldset
+          disabled={["submitting", "loading"].includes(transition.state)}
+          className="grid gap-4 m-4 w-96 place-items-start"
+        >
           {/* LATER: enable this when we have assigned rooms */}
           {/* {common.stayingOnSite === false || <div>Room Assignment: {common.roomAssignment}</div>} */}
 
@@ -94,15 +98,22 @@ export default function () {
             attribute="email"
           />
           <CommonTextbox label="Comments" guest={common} attribute="comments" />
+
+          <div className="grid place-items-center">
+            <button
+              type="submit"
+              className="mt-4 bg-transparent hover:bg-[#81a1c1] text-[#5e81ac] font-semibold hover:text-white py-2 px-4 border border-[#5e81ac] hover:border-transparent rounded"
+            >
+              {["submitting", "loading"].includes(transition.state) ? (
+                <ArrowPathIcon className="animate-spin h-6 w-6" />
+              ) : received ? (
+                "Update"
+              ) : (
+                "Submit"
+              )}
+            </button>
+          </div>
         </fieldset>
-        <div className="grid place-items-center">
-          <button
-            type="submit"
-            className="mt-4 bg-transparent hover:bg-[#81a1c1] text-[#5e81ac] font-semibold hover:text-white py-2 px-4 border border-[#5e81ac] hover:border-transparent rounded"
-          >
-            {["submitting", "loading"].includes(transition.state) ? <ArrowPathIcon className="animate-spin h-6 w-6" /> : received ? "Update" : "Submit"}
-          </button>
-        </div>
       </Form>
     </div>
   );

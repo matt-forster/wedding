@@ -1,4 +1,4 @@
-import { ArrowPathIcon } from '@heroicons/react/20/solid'
+import { ArrowPathIcon } from "@heroicons/react/20/solid";
 import { Form, useTransition } from "@remix-run/react";
 
 export default function RSVPCode({ code }: { code: string | null }) {
@@ -29,17 +29,20 @@ export default function RSVPCode({ code }: { code: string | null }) {
               placeholder=""
               defaultValue={code ? code : ""}
             />
+            <div className="grid place-items-center">
+              <button
+                type="submit"
+                className="mt-4 bg-transparent hover:bg-[#81a1c1] text-[#5e81ac] font-semibold hover:text-white py-2 px-4 border border-[#5e81ac] hover:border-transparent rounded"
+              >
+                {["submitting", "loading"].includes(transition.state) ? (
+                  <ArrowPathIcon className="animate-spin h-6 w-6" />
+                ) : (
+                  "Find"
+                )}
+              </button>
+            </div>
           </fieldset>
         </label>
-
-        <div className="grid place-items-center">
-          <button
-            type="submit"
-            className="mt-4 bg-transparent hover:bg-[#81a1c1] text-[#5e81ac] font-semibold hover:text-white py-2 px-4 border border-[#5e81ac] hover:border-transparent rounded"
-          >
-            {["submitting", "loading"].includes(transition.state) ? <ArrowPathIcon className="animate-spin h-6 w-6" /> : "Find"}
-          </button>
-        </div>
       </Form>
     </div>
   );
