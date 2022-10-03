@@ -1,5 +1,5 @@
-import cloneDeep from "lodash.clonedeep";
-import type { Guest } from "~/models/types";
+import { cloneDeep } from "lodash";
+import type { Guest } from "~/routes/wedding/guest.model";
 
 export const guestReducer = <T extends Guest, K extends keyof T>(
   guest: T,

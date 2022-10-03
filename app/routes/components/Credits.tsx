@@ -1,7 +1,7 @@
 export default function Fourth() {
   return (
     <div
-      className="bg-cover bg-center-bottom bg-no-repeat w-screen h-40 grid place-items-end gap-0 text-xs"
+      className="bg-cover bg-center-bottom bg-no-repeat w-screen h-40 grid place-items-end gap-0 md:text-xs text-xs"
       style={{
         backgroundImage: 'url("/images/landscape.png")',
       }}

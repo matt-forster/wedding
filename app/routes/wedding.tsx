@@ -6,10 +6,10 @@ import type {
 import { redirect } from "@remix-run/cloudflare";
 import { Outlet, useLoaderData } from "@remix-run/react";
 
-import Hero from "~/components/Hero";
-import Info from "~/components/Info";
-import RVSP from "~/components/RVSP";
-import Credits from "~/components/Credits";
+import Hero from "./components/Hero";
+import Info from "./components/Info";
+import RSVPCode from "./components/RSVPCode";
+import Credits from "./components/Credits";
 
 export const meta: MetaFunction = () => ({
   title: "Matt & Dominique's Wedding Reception",
@@ -19,11 +19,7 @@ export const meta: MetaFunction = () => ({
 
 export const action: ActionFunction = async ({ request }) => {
   const body = await request.formData();
-
-  // TODO: Set 'visited' on RVSP
-  const rvspCode = body.get("rvspCode");
-
-  return redirect(`/wedding/${rvspCode}#rsvp`);
+  return redirect(`/wedding/${body.get("rsvpCode")}#rsvp`);
 };
 
 export const loader: LoaderFunction = async ({ request }) => ({
@@ -34,11 +30,13 @@ export default function Index() {
   const { fillCode } = useLoaderData();
 
   return (
-    <div className="grid gap-60 place-items-stretch width-screen bg-gradient-to-b from-black via-black to-[#2e3440] text-[#d8dee9]">
+    <div className="grid gap-50 place-items-center width-screen bg-gradient-to-b from-black via-black to-[#2e3440] text-[#d8dee9]">
       <Hero />
       <Info />
-      <RVSP code={fillCode} />
-      <Outlet />
+      <div className="pt-20 grid place-items-center w-full">
+        <RSVPCode code={fillCode} />
+        <Outlet />
+      </div>
       <Credits />
     </div>
   );

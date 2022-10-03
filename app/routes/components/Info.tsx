@@ -1,4 +1,6 @@
-import ExternalLinkIcon from "./external-link";
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/20/solid'
+
+const ExternalLinkIcon = (<ArrowTopRightOnSquareIcon className="inline -mr-1 ml-1 h-5 w-5" />);
 
 export default function Info() {
   return (
@@ -15,7 +17,7 @@ export default function Info() {
             target="_blank"
             rel="noreferrer"
           >
-            Azure Ridge Estate <ExternalLinkIcon />
+            Azure Ridge Estate{ExternalLinkIcon}
           </a>
         </h2>
       </div>
@@ -31,7 +33,7 @@ export default function Info() {
         <br />
         If you have any questions, please reach out to us at{" "}
         <a className="underline" href="mailto:wedding@mattforster.ca">
-          wedding@mattforster.ca <ExternalLinkIcon />
+          wedding@mattforster.ca{ExternalLinkIcon}
         </a>
         .
         <br />
@@ -52,7 +54,7 @@ export default function Info() {
             href="https://www.google.com/maps/dir/49.6678073,-112.9134037/Azuridge+Estate+Hotel+Chic+rooms,+plus+fine+dining+%26+a+spa/@50.2873197,-114.2127867,9z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x53710c4fda3fcc89:0x8fe100c59e14140e!2m2!1d-114.406472!2d50.8868903"
             rel="noreferrer"
           >
-            Directions from your current location <ExternalLinkIcon />
+            Directions from your current location{ExternalLinkIcon}
           </a>
         </div>
       </div>
@@ -104,7 +106,7 @@ export default function Info() {
                 href="https://www.marriott.com/en-us/hotels/yycdc-delta-hotels-calgary-south/overview/"
                 rel="noreferrer"
               >
-                Marriott - South Calgary <ExternalLinkIcon />
+                Marriott - South Calgary{ExternalLinkIcon}
               </a>
             </li>
             <li>
@@ -114,7 +116,7 @@ export default function Info() {
                 href="https://www.marriott.com/en-us/hotels/yyccr-residence-inn-calgary-south/overview/"
                 rel="noreferrer"
               >
-                Marriot - South Health Campus <ExternalLinkIcon />
+                Marriot - South Health Campus{ExternalLinkIcon}
               </a>
             </li>
           </ul>
@@ -124,7 +126,7 @@ export default function Info() {
       <div>
         <h2 className="mb-2 text-3xl">Gifts</h2>
         <div>
-          We respectfully request that you do not bring gifts to the wedding.
+          We respectfully request that you do not bring gifts to the reception.
           Instead, if you like, you can make a donation to one of our favorite
           charities;{" "}
           <a
@@ -133,18 +135,17 @@ export default function Info() {
             target="_blank"
             rel="noreferrer"
           >
-            World Central Kitchen <ExternalLinkIcon />
+            World Central Kitchen{ExternalLinkIcon}
           </a>{" "}
-          and{" "}
+          or{" "}
           <a
             href="https://lethbridgepregcentre.com/donors/online-donations/"
             target="_blank"
             className="underline"
             rel="noreferrer"
           >
-            Lethbridge Pregnancy Centre <ExternalLinkIcon />
+            Lethbridge Pregnancy Centre{ExternalLinkIcon}
           </a>
-          .
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-export default function RVSP({ code }: { code: string | null }) {
+export default function RSVPCode({ code }: { code: string | null }) {
   return (
     <div
       id="rsvp"
@@ -16,7 +16,7 @@ export default function RVSP({ code }: { code: string | null }) {
           <div className="relative mt-1 rounded-md shadow-sm">
             <input
               type="text"
-              name="rvspCode"
+              name="rsvpCode"
               className="block w-full rounded-md text-black text-center border-gray-300 h-6 focus:border-[#88c0d0] focus:ring-[#8fbcbb] sm:text-sm"
               placeholder=""
               defaultValue={code ? code : ""}
@@ -28,7 +28,7 @@ export default function RVSP({ code }: { code: string | null }) {
           className="mt-4 bg-transparent hover:bg-[#81a1c1] text-[#5e81ac] font-semibold hover:text-white py-2 px-4 border border-[#5e81ac] hover:border-transparent rounded"
           type="submit"
           name="action"
-          value="Find RSVP"
+          value="Find"
         />
       </form>
     </div>
