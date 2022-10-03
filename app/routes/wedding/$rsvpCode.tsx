@@ -62,8 +62,8 @@ export default function () {
     <div className="grid place-items-center mt-10">
       {received && (
         <div className="font-bold">
-          <CheckBadgeIcon className="inline h-8 w-8" /> Your response has been
-          received - feel free to update it anytime.
+          <CheckBadgeIcon className="block h-8 w-8 text-[#a3be8c]" />
+          Your response has been received - feel free to update it anytime.
         </div>
       )}
       {common.roomAssignment === undefined || (
