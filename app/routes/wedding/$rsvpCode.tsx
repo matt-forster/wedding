@@ -39,9 +39,7 @@ export const action: ActionFunction = async ({ request, context }) => {
   const data = await request.formData();
   const action = data.get("action");
   const guests = formDataToGuests(data);
-  console.log(action);
   if (action === "submit") {
-    console.log("submitting");
     guests.forEach((guest) => (guest.rsvpReceived = true));
   }
   await updateGuests(new Client({ auth: NOTION_API_KEY }), guests);

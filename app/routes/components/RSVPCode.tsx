@@ -10,7 +10,7 @@ export default function RSVPCode({ code }: { code: string | null }) {
       className="grid gap-4 justify-center place-items-center text-center"
     >
       <h2 className="text-4xl font-bold">RSVP</h2>
-      <div className="italic font-light">
+      <div className="ml-10 mr-10 italic">
         You can come back and update this anytime before{" "}
         <span className="font-bold not-italic">July 8th, 2023</span>.
       </div>
