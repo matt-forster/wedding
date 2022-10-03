@@ -98,22 +98,22 @@ export default function () {
             attribute="email"
           />
           <CommonTextbox label="Comments" guest={common} attribute="comments" />
-
-          <div className="grid place-items-center">
-            <button
-              type="submit"
-              className="mt-4 bg-transparent hover:bg-[#81a1c1] text-[#5e81ac] font-semibold hover:text-white py-2 px-4 border border-[#5e81ac] hover:border-transparent rounded"
-            >
-              {["submitting", "loading"].includes(transition.state) ? (
-                <ArrowPathIcon className="animate-spin h-6 w-6" />
-              ) : received ? (
-                "Update"
-              ) : (
-                "Submit"
-              )}
-            </button>
-          </div>
         </fieldset>
+        <div className="grid place-items-center">
+          <button
+            type="submit"
+            className="mt-4 bg-transparent hover:bg-[#81a1c1] text-[#5e81ac] font-semibold hover:text-white py-2 px-4 border border-[#5e81ac] hover:border-transparent rounded"
+            disabled={["submitting", "loading"].includes(transition.state)}
+          >
+            {["submitting", "loading"].includes(transition.state) ? (
+              <ArrowPathIcon className="animate-spin h-6 w-6" />
+            ) : received ? (
+              "Update"
+            ) : (
+              "Submit"
+            )}
+          </button>
+        </div>
       </Form>
     </div>
   );
