@@ -19,7 +19,8 @@ export const meta: MetaFunction = () => ({
 
 export const action: ActionFunction = async ({ request }) => {
   const body = await request.formData();
-  return redirect(`/wedding/${body.get("rsvpCode")}#rsvp`);
+  const rsvpCode = body.get("rsvpCode") as string;
+  return redirect(`/wedding/${rsvpCode.toLowerCase()}#rsvp`);
 };
 
 export const loader: LoaderFunction = async ({ request }) => ({
