@@ -1,4 +1,5 @@
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
+import { InformationCircleIcon } from "@heroicons/react/24/outline";
 
 const ExternalLinkIcon = (
   <ArrowTopRightOnSquareIcon className="inline -mr-1 ml-1 h-5 w-5" />
@@ -46,8 +47,9 @@ export default function Info() {
         <h2 className="mb-2 text-3xl text-[#eceff4]">Location</h2>
         <div>
           Azuridge Estate Hotel, 178057 272 St W, Priddis, AB T0L 1W4
-          <div className="text-xs text-light">
-            ~20 minutes from the south of Calgary
+          <div className="text-xs italic">
+            <InformationCircleIcon className="h-4 w-4 inline" /> ~20 minutes
+            from the south of Calgary
           </div>
           <br />
           <a
@@ -88,8 +90,9 @@ export default function Info() {
           <div>9:00 AM</div>
           <div></div>
         </div>
-        <div className="mt-2 font-light italic text-xs">
-          *Everything held on grounds at Azure Ridge
+        <div className="mt-2 italic text-xs">
+          <InformationCircleIcon className="h-4 w-4 inline" /> Everything held
+          on grounds at Azure Ridge
         </div>
       </div>
 
