@@ -26,34 +26,32 @@ export default function GuestRSVPFields({
           attribute="attending"
           className="font-bold"
         />
-        {guest.attending ? (
-          <>
-            <GuestMealDropdown
-              label="Plate Selection"
-              guest={guest}
-              attribute="mealChoice"
-            />
-            <GuestTextBox
-              label="Any food sensitivities or allergies?"
-              guest={guest}
-              attribute="mealNotes"
-            />
-            {guest.roomAssignment === undefined || (
-              <GuestCheckbox
-                label="Staying on site at Azure Ridge?"
-                guest={guest}
-                attribute="stayingOnSite"
-                className="font-light"
-              />
-            )}
+        <div className={(guest.attending ? "visible h-auto w-full" : "invisible h-0 w-full")}>
+          <GuestMealDropdown
+            label="Plate Selection"
+            guest={guest}
+            attribute="mealChoice"
+          />
+          <GuestTextBox
+            label="Any food sensitivities or allergies?"
+            guest={guest}
+            attribute="mealNotes"
+          />
+          {guest.roomAssignment === undefined || (
             <GuestCheckbox
-              label="Staying for breakfast on Sunday?"
+              label="Staying on site at Azure Ridge?"
               guest={guest}
-              attribute="attendingBreakfast"
+              attribute="stayingOnSite"
               className="font-light"
             />
-          </>
-        ) : null}
+          )}
+          <GuestCheckbox
+            label="Staying for breakfast on Sunday?"
+            guest={guest}
+            attribute="attendingBreakfast"
+            className="font-light"
+          />
+        </div>
       </div>
     </div>
   );
