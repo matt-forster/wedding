@@ -26,9 +26,12 @@ export function GuestMealDropdown({
   label: string;
 }) {
   return (
-    <label className="inline text-sm font-medium">
+    <label className="inline text-sm font-medium m-2">
       {label}
-      <select name={`${guest.id}.${attribute}`} className="inline m-2 w-1/2 md:w-full rounded-md text-black border-gray-300 h-6 focus:border-[#88c0d0] focus:ring-[#8fbcbb] sm:text-sm">
+      <select
+        name={`${guest.id}.${attribute}`}
+        className="inline m-2 w-1/2 md:w-full rounded-md text-black border-gray-300 h-6 focus:border-[#88c0d0] focus:ring-[#8fbcbb] sm:text-sm"
+      >
         <MealOption guest={guest} option={MealChoice.One} />
         <MealOption guest={guest} option={MealChoice.Two} />
         <MealOption guest={guest} option={MealChoice.Three} />
