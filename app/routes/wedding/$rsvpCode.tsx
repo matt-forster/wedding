@@ -60,8 +60,12 @@ export default function () {
   const CommonTextbox = Textbox(dispatchCommonChange);
 
   useEffect(() => {
-    if (transition.state === "loading") setReceived(true);
-  }, [transition.state]);
+    if (
+      transition.state === "loading" &&
+      transition.submission?.formData.get("action") === "submit"
+    )
+      setReceived(true);
+  }, [transition.state, transition.submission?.formData]);
 
   return (
     <div className="grid place-items-center mt-10">
