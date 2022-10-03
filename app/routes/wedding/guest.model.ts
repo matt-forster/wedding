@@ -43,6 +43,26 @@ const propertyIsSelect = (property: any): property is SelectProperty => property
 type CheckboxProperty = {checkbox: boolean};
 const propertyIsCheckbox = (property: any): property is CheckboxProperty => property.type === "checkbox";
 
+export const formDataToGuests = (data: FormData): Partial<Guest>[] => {
+  const guests: Partial<Guest>[] = [];
+  for (const [key, value] of data.entries()) {
+    // serialize out ID.attribute
+    const [id, attribute] = key.split(".") as [string, keyof Guest];
+    if (!id || !attribute) continue;
+    // add guest if ID doesn't identify
+    let guest;
+    guest = guests.find((g) => g.id === id);
+    if (!guest) {
+      guest = { id };
+      guests.push(guest);
+    }
+    // add attribute to guest
+    guest[attribute] = value === "on" ? true : (value as any);
+  }
+
+  return guests;
+};
+
 const propertySerializer = (page: PageObjectResponse) => {
   const { properties } = page;
   return {
@@ -63,7 +83,7 @@ const propertySerializer = (page: PageObjectResponse) => {
     getSelect: <T>(key: string, defaultChoice: T) => {
       const property = properties[key];
       if (propertyIsSelect(property)) {
-        return property.select?.name as T ?? defaultChoice;
+        return (property.select?.name as T) ?? defaultChoice;
       }
 
       return defaultChoice;
@@ -77,7 +97,7 @@ const propertySerializer = (page: PageObjectResponse) => {
       return false;
     },
   };
-}
+};
 
 const propertyDeserializer = (guest: Partial<Guest>) => {
   return {
@@ -91,11 +111,11 @@ const propertyDeserializer = (guest: Partial<Guest>) => {
               type: "text",
               text: {
                 content: guest[key],
-              }
-            }
-          ]
-        }
-      }
+              },
+            },
+          ],
+        },
+      };
     },
     setRichText: (key: keyof Guest) => {
       if (guest[key] === undefined) return {};
@@ -107,35 +127,36 @@ const propertyDeserializer = (guest: Partial<Guest>) => {
               type: "text",
               text: {
                 content: guest[key],
-              }
-            }
-          ]
-        }
-      }
+              },
+            },
+          ],
+        },
+      };
     },
     setSelect: (key: keyof Guest) => {
-      const selectIsDefined = (value: any): value is string => guest[key] !== undefined;
+      const selectIsDefined = (value: any): value is string =>
+        guest[key] !== undefined;
       const select = guest[key];
       if (!selectIsDefined(select)) return {};
 
       return {
         [key]: {
           select: {
-            name: select
-          }
-        }
-      }
+            name: select,
+          },
+        },
+      };
     },
     setCheckbox: (key: keyof Guest) => {
       return {
         [key]: {
           type: "checkbox",
-          checkbox: guest[key] ?? false
-        }
-      }
+          checkbox: guest[key] ?? false,
+        },
+      };
     },
   };
-}
+};
 
 const pageToGuest = (
   page: PageObjectResponse | PartialPageObjectResponse
@@ -143,7 +164,8 @@ const pageToGuest = (
   if (!pageHasProperties(page))
     throw new Error("Invalid page type - no properties");
 
-  const {getTitle, getRichText, getSelect, getCheckbox} = propertySerializer(page);
+  const { getTitle, getRichText, getSelect, getCheckbox } =
+    propertySerializer(page);
   return {
     id: page.id,
     name: getTitle("name"),
@@ -157,33 +179,12 @@ const pageToGuest = (
     rsvpOpened: getCheckbox("rsvpOpened"),
     rsvpReceived: getCheckbox("rsvpReceived"),
     attending: getCheckbox("attending"),
-    primary: getCheckbox("primary")
+    primary: getCheckbox("primary"),
   };
 };
 
 export const serializeGuests = (data: QueryDatabaseResponse): Guest[] =>
   data.results.map(pageToGuest);
-
-export const formDataToGuests = (
-  data: FormData
-): Partial<Guest>[] => {
-  const guests: Partial<Guest>[] = [];
-  for (const [key, value] of data.entries()) {
-    // serialize out ID.attribute
-    const [id, attribute] = key.split(".") as [string, keyof Guest];
-    // add guest if ID doesn't identify
-    let guest;
-    guest = guests.find((g) => g.id === id);
-    if (!guest) {
-      guest = { id };
-      guests.push(guest);
-    }
-    // add attribute to guest
-    guest[attribute] = value === 'on' ? true : value as any;
-  }
-
-  return guests;
-};
 
 export const guestToProperties = (guest: Partial<Guest>): Record<string, any> => {
   const {setTitle, setRichText, setSelect, setCheckbox} = propertyDeserializer(guest);

@@ -32,6 +32,8 @@ export default function RSVPCode({ code }: { code: string | null }) {
             <div className="grid place-items-center">
               <button
                 type="submit"
+                name="action"
+                value="find"
                 className="mt-4 bg-transparent hover:bg-[#81a1c1] text-[#5e81ac] font-semibold hover:text-white py-2 px-4 border border-[#5e81ac] hover:border-transparent rounded"
               >
                 {["submitting", "loading"].includes(transition.state) ? (

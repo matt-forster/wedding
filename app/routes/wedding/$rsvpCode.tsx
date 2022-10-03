@@ -37,8 +37,13 @@ export const loader: LoaderFunction = async ({ request, params, context }) => {
 export const action: ActionFunction = async ({ request, context }) => {
   const { NOTION_API_KEY } = context as Context;
   const data = await request.formData();
+  const action = data.get("action");
   const guests = formDataToGuests(data);
-  guests.forEach((guest) => (guest.rsvpReceived = true));
+  console.log(action);
+  if (action === "submit") {
+    console.log("submitting");
+    guests.forEach((guest) => (guest.rsvpReceived = true));
+  }
   await updateGuests(new Client({ auth: NOTION_API_KEY }), guests);
   const [, , rsvpCode] = new URL(request.url).pathname.split("/");
   return redirect(`/wedding/${rsvpCode}#rsvp`);
@@ -103,6 +108,8 @@ export default function () {
         <div className="grid place-items-center">
           <button
             type="submit"
+            name="action"
+            value="submit"
             className="mt-4 bg-transparent hover:bg-[#81a1c1] text-[#5e81ac] font-semibold hover:text-white py-2 px-4 border border-[#5e81ac] hover:border-transparent rounded"
             disabled={["submitting", "loading"].includes(transition.state)}
           >
