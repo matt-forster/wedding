@@ -25,17 +25,28 @@ export function GuestMealDropdown({
   attribute: keyof Guest;
   label: string;
 }) {
+  console.log(guest);
+
   return (
     <label className="m-2 block font-light md:w-1/2">
       {label}
-      {/* TODO: isKid */}
       <select
         name={`${guest.id}.${attribute}`}
         className="inline ml-4 w-1/2 md:w-full rounded-md text-black border-gray-300 h-6 focus:border-[#88c0d0] focus:ring-[#8fbcbb] text-sm"
       >
-        <MealOption guest={guest} option={MealChoice.One} />
-        <MealOption guest={guest} option={MealChoice.Two} />
-        <MealOption guest={guest} option={MealChoice.Three} />
+        {guest.isKid && (
+          <>
+            <option value="Kid's Meal" selected>Kids' Meal</option>
+          </>
+        )}
+        {!guest.isKid && (
+          <>
+            <MealOption guest={guest} option={MealChoice.One} />
+            <MealOption guest={guest} option={MealChoice.Two} />
+            <MealOption guest={guest} option={MealChoice.Three} />
+          </>
+        )}
+
       </select>
     </label>
   );

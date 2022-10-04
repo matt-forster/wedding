@@ -25,6 +25,7 @@ export type Guest = {
   attending: boolean;
   rsvpReceived: boolean;
   primary: boolean;
+  isKid: boolean;
 };
 
 export const pageHasProperties = (
@@ -180,6 +181,7 @@ const pageToGuest = (
     rsvpReceived: getCheckbox("rsvpReceived"),
     attending: getCheckbox("attending"),
     primary: getCheckbox("primary"),
+    isKid: getCheckbox("isKid"),
   };
 };
 
@@ -187,14 +189,12 @@ export const serializeGuests = (data: QueryDatabaseResponse): Guest[] =>
   data.results.map(pageToGuest);
 
 export const guestToProperties = (guest: Partial<Guest>): Record<string, any> => {
-  const {setTitle, setRichText, setSelect, setCheckbox} = propertyDeserializer(guest);
+  const {setRichText, setSelect, setCheckbox} = propertyDeserializer(guest);
 
   return {
-    ...setTitle("name"),
     ...setRichText("comments"),
     ...setRichText("mealNotes"),
     ...setRichText("email"),
-    ...setRichText("roomAssignment"),
     ...setSelect("mealChoice"),
     ...setCheckbox("stayingOnSite"),
     ...setCheckbox("attendingBreakfast"),
