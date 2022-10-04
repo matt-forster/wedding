@@ -3,7 +3,7 @@ import { HeartIcon } from "@heroicons/react/24/outline";
 export default function Fourth() {
   return (
     <div
-      className="bg-cover bg-center-bottom bg-no-repeat w-screen h-40 grid text-right place-items-end gap-0 text-xs text-[#4c566a]"
+      className="bg-cover bg-center-bottom bg-no-repeat w-screen h-40 grid text-right place-items-end gap-0 text-xs"
       style={{
         backgroundImage: 'url("/images/landscape.png")',
       }}

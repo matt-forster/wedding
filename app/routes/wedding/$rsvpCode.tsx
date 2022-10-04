@@ -75,7 +75,8 @@ export default function () {
 
       {common.roomAssignment === undefined || (
         <div className="mt-4 w-3/4 text-center">
-          Your party has been assigned to a room!
+          Your party has been assigned to a room! If you want to stay on site, please
+          indicate such below.
           <br />
           We will send an email out later if you decide to stay, with the room
           number and occupants.

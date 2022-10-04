@@ -5,9 +5,9 @@ import type {
 } from "@notionhq/client/build/src/api-endpoints";
 
 export enum MealChoice {
-  One = 'Meal 1',
-  Two = 'Meal 2',
-  Three = 'Meal 3'
+  One = 'Lamb Duo - Rack & tenerloin roulade',
+  Two = 'Grilled Veal - Portobello mushroom',
+  Three = 'Ratatouille (V) - Bell pepper cup'
 }
 
 export type Guest = {
