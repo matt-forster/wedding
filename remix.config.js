@@ -10,6 +10,7 @@ module.exports = {
     "**/util/*",
     "**/*.model.*",
     "**/*.repository.*",
+    "**/*.test.*",
   ],
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",

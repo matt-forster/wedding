@@ -15,7 +15,7 @@ export default function RSVPCode({ code }: { code: string | null }) {
         <span className="font-bold not-italic">July 8th, 2023</span>.
       </div>
 
-      <Form reloadDocument method="post" action="/wedding">
+      <Form reloadDocument method="post">
         <label className="block text-sm font-medium">
           RSVP Code
           <fieldset
