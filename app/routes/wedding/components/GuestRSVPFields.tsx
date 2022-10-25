@@ -2,6 +2,7 @@ import { useReducer } from "react";
 import type { Guest } from "~/routes/wedding/guest.model";
 import { guestReducer } from "~/routes/wedding/util/guestsReducer";
 import { Checkbox } from "./Checkbox";
+import { Radio } from "./Radio";
 import { GuestMealDropdown } from "./MealDropdown";
 import { Textbox } from "./Textbox";
 
@@ -14,6 +15,7 @@ export default function GuestRSVPFields({
 
   const GuestTextBox = Textbox(dispatchGuestChange);
   const GuestCheckbox = Checkbox(dispatchGuestChange);
+  const GuestRadio = Radio(dispatchGuestChange);
 
   return (
     <div className="contents sm:w-full">
@@ -38,14 +40,14 @@ export default function GuestRSVPFields({
             attribute="mealNotes"
           />
           {guest.roomAssignment === undefined || (
-            <GuestCheckbox
+            <GuestRadio
               label="Staying on site at Azure Ridge?"
               guest={guest}
               attribute="stayingOnSite"
               className="font-light"
             />
           )}
-          <GuestCheckbox
+          <GuestRadio
             label="Attending breakfast on Sunday?"
             guest={guest}
             attribute="attendingBreakfast"
