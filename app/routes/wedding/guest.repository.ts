@@ -16,12 +16,6 @@ export const getGuestsByCode = async (
     })
   );
 
-  guests.forEach((guest) => guest.rsvpOpened = true);
-  await updateGuests(
-    notion,
-    guests
-  );
-
   return guests;
 };
 

@@ -18,6 +18,7 @@ export const Radio = (
     label: string;
     className?: string;
   }): JSX.Element {
+    console.log(guest);
     return (
       <label className={"inline " + (className ?? "")}>
         {label}
@@ -46,7 +47,7 @@ export const Radio = (
               className="inline m-2"
               name={`${guest.id}.${attribute}`}
               value="false"
-              checked={Boolean(guest[attribute]) === false}
+              checked={(guest[attribute] ?? false) === false}
               onChange={(e) =>
                 dispatch({
                   attribute,

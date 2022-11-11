@@ -5,7 +5,7 @@ import type {
 } from "@notionhq/client/build/src/api-endpoints";
 
 export enum MealChoice {
-  One = 'Lamb Duo - Rack & tenerloin roulade',
+  One = 'Lamb Duo - Rack & Tenderloin roulade',
   Two = 'Grilled Veal - Portobello mushroom',
   Three = 'Ratatouille (V) - Bell pepper cup'
 }
@@ -96,7 +96,7 @@ const propertySerializer = (page: PageObjectResponse) => {
       }
 
       return false;
-    },
+    }
   };
 };
 
@@ -152,7 +152,16 @@ const propertyDeserializer = (guest: Partial<Guest>) => {
       return {
         [key]: {
           type: "checkbox",
-          checkbox: guest[key] ?? false,
+          checkbox: guest[key] ? Boolean(guest[key]) : false,
+        },
+      };
+    },
+    setRadio: (key: keyof Guest) => {
+      console.log(key, typeof guest[key], guest[key] === 'true')
+      return {
+        [key]: {
+          type: "checkbox",
+          checkbox: guest[key] ? guest[key] === 'true' : false,
         },
       };
     },
@@ -189,15 +198,15 @@ export const serializeGuests = (data: QueryDatabaseResponse): Guest[] =>
   data.results.map(pageToGuest);
 
 export const guestToProperties = (guest: Partial<Guest>): Record<string, any> => {
-  const {setRichText, setSelect, setCheckbox} = propertyDeserializer(guest);
+  const {setRichText, setSelect, setCheckbox, setRadio} = propertyDeserializer(guest);
 
   return {
     ...setRichText("comments"),
     ...setRichText("mealNotes"),
     ...setRichText("email"),
     ...setSelect("mealChoice"),
-    ...setCheckbox("stayingOnSite"),
-    ...setCheckbox("attendingBreakfast"),
+    ...setRadio("stayingOnSite"),
+    ...setRadio("attendingBreakfast"),
     ...setCheckbox("rsvpOpened"),
     ...setCheckbox("rsvpReceived"),
     ...setCheckbox("attending"),
