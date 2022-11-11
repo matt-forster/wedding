@@ -149,6 +149,7 @@ const propertyDeserializer = (guest: Partial<Guest>) => {
       };
     },
     setCheckbox: (key: keyof Guest) => {
+      if (!guest[key]) return {};
       return {
         [key]: {
           type: "checkbox",
@@ -157,7 +158,7 @@ const propertyDeserializer = (guest: Partial<Guest>) => {
       };
     },
     setRadio: (key: keyof Guest) => {
-      console.log(key, typeof guest[key], guest[key] === 'true')
+      if (!guest[key]) return {};
       return {
         [key]: {
           type: "checkbox",

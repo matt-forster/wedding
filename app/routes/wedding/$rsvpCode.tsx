@@ -23,14 +23,21 @@ interface Context extends AppLoadContext {
 export const loader: LoaderFunction = async ({ request, params, context }) => {
   const { NOTION_API_KEY, DATABASE_ID } = context as Context;
   if (!params.rsvpCode) return {};
+  const client = new Client({ auth: NOTION_API_KEY });
+  const guests = await getGuestsByCode(
+    client,
+    DATABASE_ID,
+    params.rsvpCode
+  );
+
+  await updateGuests(client, guests.map(guest => ({
+    id: guest.id,
+    rsvpOpened: true
+  })));
 
   return {
     rvspCode: params.rvspCode,
-    guests: await getGuestsByCode(
-      new Client({ auth: NOTION_API_KEY }),
-      DATABASE_ID,
-      params.rsvpCode
-    ),
+    guests: guests
   };
 };
 
