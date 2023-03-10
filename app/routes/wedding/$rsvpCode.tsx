@@ -63,7 +63,8 @@ export default function () {
     return (
       <div className="grid place-items-stretch text-center justify-items-center mt-10">
         <div className="m-10 p-4 content font-bold rounded-md bg-[#3b4252] drop-shadow-md">
-          <ExclamationTriangleIcon className="inline h-8 w-8 text-[#d08770]" /> This code is not valid - check your invite for the correct code.
+          <ExclamationTriangleIcon className="inline h-8 w-8 text-[#d08770]" />{" "}
+          This code is not valid - check your invite for the correct code.
         </div>
       </div>
     );
@@ -73,6 +74,7 @@ export default function () {
     guestReducer,
     guests.find((guest) => guest.primary) as Guest
   );
+
   const [received, setReceived] = useState(Boolean(common.rsvpReceived));
   const CommonTextbox = Textbox(dispatchCommonChange);
 
@@ -96,7 +98,8 @@ export default function () {
         <div className="mt-4 w-3/4 text-center">
           Your party has been assigned to a room! If you want to stay on site,
           please indicate such below.
-          <br /><br />
+          <br />
+          <br />
           We will send an email out later if you decide to stay, with the room
           number and occupants.
           <div className="mt-4 italic font-light">

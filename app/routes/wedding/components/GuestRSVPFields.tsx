@@ -28,7 +28,11 @@ export default function GuestRSVPFields({
           attribute="attending"
           className="font-bold"
         />
-        <div className={(guest.attending ? "visible h-auto w-full " : "invisible h-0 w-full")}>
+        <div
+          className={
+            guest.attending ? "visible h-auto w-full " : "invisible h-0 w-full"
+          }
+        >
           <GuestMealDropdown
             label="Plate Selection"
             guest={guest}
@@ -44,6 +48,14 @@ export default function GuestRSVPFields({
               label="Staying on site at Azure Ridge?"
               guest={guest}
               attribute="stayingOnSite"
+              className="font-light"
+            />
+          )}
+          {guest.roomAssignment === undefined || (
+            <GuestRadio
+              label="Staying an additional night (Friday, Extra cost)?"
+              guest={guest}
+              attribute="stayingFriday"
               className="font-light"
             />
           )}

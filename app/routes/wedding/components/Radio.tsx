@@ -18,7 +18,6 @@ export const Radio = (
     label: string;
     className?: string;
   }): JSX.Element {
-    console.log(guest);
     return (
       <label className={"inline " + (className ?? "")}>
         {label}

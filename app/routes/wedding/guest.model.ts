@@ -18,6 +18,7 @@ export type Guest = {
   email?: string;
   mealChoice?: MealChoice;
   stayingOnSite: boolean;
+  stayingFriday: boolean;
   attendingBreakfast: boolean;
   // passive properties
   roomAssignment?: string;
@@ -32,17 +33,21 @@ export const pageHasProperties = (
   page: PageObjectResponse | PartialPageObjectResponse
 ): page is PageObjectResponse => Object.hasOwn(page, "properties");
 
-type TitleProperty = {title: [{plain_text: string}]};
-const propertyIsTitle = (property: any): property is TitleProperty => property.type === "title";
+type TitleProperty = { title: [{ plain_text: string }] };
+const propertyIsTitle = (property: any): property is TitleProperty =>
+  property.type === "title";
 
-type RichTextProperty = {rich_text: [{plain_text: string}]};
-const propertyIsRichText = (property: any): property is RichTextProperty => property.type === "rich_text";
+type RichTextProperty = { rich_text: [{ plain_text: string }] };
+const propertyIsRichText = (property: any): property is RichTextProperty =>
+  property.type === "rich_text";
 
-type SelectProperty = {select: {name: string}};
-const propertyIsSelect = (property: any): property is SelectProperty => property.type === "select";
+type SelectProperty = { select: { name: string } };
+const propertyIsSelect = (property: any): property is SelectProperty =>
+  property.type === "select";
 
-type CheckboxProperty = {checkbox: boolean};
-const propertyIsCheckbox = (property: any): property is CheckboxProperty => property.type === "checkbox";
+type CheckboxProperty = { checkbox: boolean };
+const propertyIsCheckbox = (property: any): property is CheckboxProperty =>
+  property.type === "checkbox";
 
 export const formDataToGuests = (data: FormData): Partial<Guest>[] => {
   const guests: Partial<Guest>[] = [];
@@ -96,7 +101,7 @@ const propertySerializer = (page: PageObjectResponse) => {
       }
 
       return false;
-    }
+    },
   };
 };
 
@@ -162,7 +167,7 @@ const propertyDeserializer = (guest: Partial<Guest>) => {
       return {
         [key]: {
           type: "checkbox",
-          checkbox: guest[key] ? guest[key] === 'true' : false,
+          checkbox: guest[key] ? guest[key] === "true" : false,
         },
       };
     },
@@ -186,6 +191,7 @@ const pageToGuest = (
     roomAssignment: getRichText("roomAssignment"),
     mealChoice: getSelect<MealChoice>("mealChoice", MealChoice.One),
     stayingOnSite: getCheckbox("stayingOnSite"),
+    stayingFriday: getCheckbox("stayingFriday"),
     attendingBreakfast: getCheckbox("attendingBreakfast"),
     rsvpOpened: getCheckbox("rsvpOpened"),
     rsvpReceived: getCheckbox("rsvpReceived"),
@@ -198,8 +204,11 @@ const pageToGuest = (
 export const serializeGuests = (data: QueryDatabaseResponse): Guest[] =>
   data.results.map(pageToGuest);
 
-export const guestToProperties = (guest: Partial<Guest>): Record<string, any> => {
-  const {setRichText, setSelect, setCheckbox, setRadio} = propertyDeserializer(guest);
+export const guestToProperties = (
+  guest: Partial<Guest>
+): Record<string, any> => {
+  const { setRichText, setSelect, setCheckbox, setRadio } =
+    propertyDeserializer(guest);
 
   return {
     ...setRichText("comments"),
@@ -207,6 +216,7 @@ export const guestToProperties = (guest: Partial<Guest>): Record<string, any> =>
     ...setRichText("email"),
     ...setSelect("mealChoice"),
     ...setRadio("stayingOnSite"),
+    ...setRadio("stayingFriday"),
     ...setRadio("attendingBreakfast"),
     ...setCheckbox("rsvpOpened"),
     ...setCheckbox("rsvpReceived"),
