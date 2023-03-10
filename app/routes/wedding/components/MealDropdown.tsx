@@ -26,11 +26,11 @@ export function GuestMealDropdown({
   label: string;
 }) {
   return (
-    <label className="m-2 block font-light md:w-1/2">
+    <label className="m-2 block font-light md:w-3/4">
       {label}
       <select
         name={`${guest.id}.${attribute}`}
-        className="inline ml-4 w-3/4 md:w-full rounded-md text-black border-gray-300 h-6 focus:border-[#88c0d0] focus:ring-[#8fbcbb] text-sm"
+        className="inline ml-4 pl-2 w-3/4 md:w-full rounded-md text-black border-gray-300 h-6 focus:border-[#88c0d0] focus:ring-[#8fbcbb] text-sm"
         defaultValue={guest.mealChoice}
       >
         {guest.isKid && (
