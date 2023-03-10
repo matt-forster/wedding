@@ -55,7 +55,7 @@ export default function GuestRSVPFields({
             <GuestRadio
               label="Staying an additional night (Friday, Extra cost)?"
               guest={guest}
-              attribute="stayingOnSite"
+              attribute="stayingFriday"
               className="font-light"
             />
           )}
