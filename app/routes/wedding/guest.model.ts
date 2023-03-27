@@ -6,8 +6,8 @@ import type {
 
 export enum MealChoice {
   One = 'Lamb Duo - Rack & Tenderloin roulade',
-  Two = 'Grilled Veal - Portobello mushroom',
-  Three = 'Ratatouille (V) - Bell pepper cup'
+  Two = 'Stuffed Chicken - Saskatoon Berry',
+  Three = 'Cauliflour Steak (V) - Bell pepper cup'
 }
 
 export type Guest = {
