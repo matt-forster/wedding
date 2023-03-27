@@ -55,7 +55,7 @@ export default function Info() {
           <a
             className="text-[#d8dee9] text-sm underline"
             target="_blank"
-            href="https://www.google.com/maps/dir/49.6678073,-112.9134037/Azuridge+Estate+Hotel+Chic+rooms,+plus+fine+dining+%26+a+spa/@50.2873197,-114.2127867,9z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x53710c4fda3fcc89:0x8fe100c59e14140e!2m2!1d-114.406472!2d50.8868903"
+            href="https://www.google.com/maps/dir//Azuridge+Estate+Hotel,+178057+272+St+W,+Priddis,+AB+T0L+1W4/@50.8868693,-114.4765116,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x53710c4fda3fcc89:0x8fe100c59e14140e!2m2!1d-114.406472!2d50.8868903"
             rel="noreferrer"
           >
             Directions from your current location{ExternalLinkIcon}
